@@ -9,14 +9,22 @@
             "16":"icon.jpg"
         }
     },
+    "content_scripts":[
+        {
+            "matches":["https://developer.chrome.com/*"],
+            "js":["content.js", "jquery-3.2.1.min.js"],
+            "css":["content.css"]
+        }
+    ],
     "permissions":[
         "storage",
         "notifications",
-        "contextMenus"
+        "contextMenus",
+        "https://developer.chrome.com/*"
     ],
     "background":{
         "scripts":["backgrounds.js"],
-        "persistent":false // false -> eventPage
+        "persistent":false // false -> eventPage || true -> backgroundPage
     },
     "icons":{
         "16":"icon.jpg"
