@@ -57,5 +57,15 @@ $(document).ready(() => {
         
         
     })
+    $("#colorPick").on('change', ()=>{
+        var colorobj = document.getElementById('colorPick');
+        console.warn('value color : '+ colorobj.value)
+        chrome.tabs.query({active:true, currentWindow:true}, (tabs) => {
+            chrome.tabs.sendMessage(tabs[0].id,{check:'abc'  ,color:colorobj.value.toString()} )
+        })
+
+        // chrome.runtime.sendMessage()
+    })
 
 })
+

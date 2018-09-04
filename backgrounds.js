@@ -10,8 +10,7 @@ chrome.storage.onChanged.addListener((changes, storageName)=>{
 })
 
 chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
-    if(request.hey == "thisisaHeyMessage"){
+    if(request.hey){
         console.warn('received HEY MESSAGE')
-        alert('received a hey message')
     }
 })
