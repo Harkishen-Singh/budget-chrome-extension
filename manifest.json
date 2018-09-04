@@ -11,8 +11,13 @@
     },
     "permissions":[
         "storage",
-        "notifications"
+        "notifications",
+        "contextMenus"
     ],
+    "background":{
+        "scripts":["backgrounds.js"],
+        "persistent":false // false -> eventPage
+    },
     "icons":{
         "16":"icon.jpg"
     },

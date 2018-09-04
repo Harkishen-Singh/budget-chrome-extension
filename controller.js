@@ -31,7 +31,18 @@ $(document).ready(() => {
                     iconUrl:'icon.jpg',
                     message: curr_debit+' have been debited from your account.'
                 })
+
                 chrome.storage.sync.set({'totalCredits':credit})
+                chrome.storage.sync.get('totalDebits', (credits) => {
+                    let amt = parseInt(credits.totalDebits);
+                    if(!isNaN(amt))
+                    netAmount += amt;
+        
+        
+                    chrome.storage.sync.set({'totalDebits': parseInt(netAmount) });
+                    document.getElementById('bal_a').innerHTML = netAmount;
+        
+                })
             }
             else
                 chrome.notifications.create('noBalanceWarning', {
@@ -43,16 +54,7 @@ $(document).ready(() => {
             
         })
 
-        chrome.storage.sync.get('totalDebits', (credits) => {
-            let amt = parseInt(credits.totalDebits);
-            if(!isNaN(amt))
-            netAmount += amt;
-
-
-            chrome.storage.sync.set({'totalDebits': parseInt(netAmount) });
-            document.getElementById('bal_a').innerHTML = netAmount;
-
-        })
+        
         
     })
 
