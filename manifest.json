@@ -1,0 +1,20 @@
+{
+    "name":"Bugdet Manager",
+    "version":"1.0",
+    "manifest_version":2,
+    "description":"An extension to manage the budget of user",
+    "browser_action":{
+        "default_popup":"popup.html",
+        "default_icon":{
+            "16":"icon.jpg"
+        }
+    },
+    "permissions":[
+        "storage",
+        "notifications"
+    ],
+    "icons":{
+        "16":"icon.jpg"
+    },
+    "options_page":"options.html"
+}
